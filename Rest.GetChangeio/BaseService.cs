@@ -53,5 +53,17 @@ namespace Rest.GetChangeio
 			this.config = config;
 			this.httpClientFactory = httpClientFactory;
 		}
+
+		protected HttpRequestMessage CreateRequest<TRequest>(TRequest request, HttpMethod httpMethod, Uri requestUri)
+		{
+			var requestJson = JsonSerializer.Serialize(request, this.JsonSerializerOptions);
+			return new(httpMethod, requestUri)
+			{
+				Content = new StringContent(requestJson, Encoding.UTF8, "application/json")
+			};
+		}
+
+		protected HttpRequestMessage CreateRequest<TRequest>(TRequest request, HttpMethod httpMethod, string requestUrl)
+			=> CreateRequest(request, httpMethod, new Uri(requestUrl));
 	}
 }

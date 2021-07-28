@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Rest.GetChangeio.ServiceModel\Rest.GetChangeio.ServiceModel.csproj" />
+    </ItemGroup>
+
 </Project>

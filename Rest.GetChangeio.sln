@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.GetChangeio.Tests", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.GetChangeio.Requests", "Rest.GetChangeio.Requests\Rest.GetChangeio.Requests.csproj", "{0C9037F5-154A-49A7-B4C2-BA93A58714CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.GetChangeio.Responses", "Rest.GetChangeio.Responses\Rest.GetChangeio.Responses.csproj", "{71DCFA10-1818-482A-BD04-F6A57A21D948}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.GetChangeio.ServiceModel", "Rest.GetChangeio.ServiceModel\Rest.GetChangeio.ServiceModel.csproj", "{686EFD23-9E06-4A60-89CB-C07C3855CF47}"
 EndProject
 Global
@@ -34,10 +32,6 @@ Global
 		{0C9037F5-154A-49A7-B4C2-BA93A58714CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C9037F5-154A-49A7-B4C2-BA93A58714CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C9037F5-154A-49A7-B4C2-BA93A58714CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{71DCFA10-1818-482A-BD04-F6A57A21D948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71DCFA10-1818-482A-BD04-F6A57A21D948}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71DCFA10-1818-482A-BD04-F6A57A21D948}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{71DCFA10-1818-482A-BD04-F6A57A21D948}.Release|Any CPU.Build.0 = Release|Any CPU
 		{686EFD23-9E06-4A60-89CB-C07C3855CF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{686EFD23-9E06-4A60-89CB-C07C3855CF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{686EFD23-9E06-4A60-89CB-C07C3855CF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
