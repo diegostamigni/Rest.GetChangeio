@@ -2,8 +2,8 @@ namespace Rest.GetChangeio.Abstractions
 {
 	public interface IGetChangeioConfig
 	{
-		public string? PublicKey { get; set; }
+		public string? GetChangeioPublicKey { get; set; }
 
-		public string? SecretKey { get; set; }
+		public string? GetChangeioSecretKey { get; set; }
 	}
 }

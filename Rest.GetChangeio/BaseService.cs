@@ -35,7 +35,7 @@ namespace Rest.GetChangeio
 					throw new ArgumentNullException(nameof(configuredHttpClient), "Invalid http client");
 				}
 
-				var userAndPwd = $"{this.config.PublicKey}:{this.config.SecretKey}";
+				var userAndPwd = $"{this.config.GetChangeioPublicKey}:{this.config.GetChangeioSecretKey}";
 				var auth = $"Basic {Convert.ToBase64String(Encoding.ASCII.GetBytes(userAndPwd))}";
 				configuredHttpClient.DefaultRequestHeaders.Add("Authorization", auth);
 				configuredHttpClient.DefaultRequestHeaders.Accept.Add(new("application/json"));

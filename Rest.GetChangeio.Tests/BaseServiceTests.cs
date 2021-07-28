@@ -17,11 +17,11 @@ namespace Rest.GetChangeio.Tests
 		{
 			this.ConfigMock = new();
 			this.ConfigMock
-				.Setup(x => x.PublicKey)
+				.Setup(x => x.GetChangeioPublicKey)
 				.Returns("pk_test_88c1d002fb2b2e4abddd2843e2819edf00ad26e9f97714f0a2a11853d7dfd53b");
 
 			this.ConfigMock
-				.Setup(x => x.SecretKey)
+				.Setup(x => x.GetChangeioSecretKey)
 				.Returns("sk_test_6bca16406fc57fa62e18eb10eb80be1cbd2d955e81928a3e12cb4279d2d14016");
 		}
 

@@ -10,8 +10,8 @@ All APIs are grouped in services:
  * ...
 
 All concrete classes respect a contract (ex. `DonationService` -> `IDonationService`) making things easier for testing/mocking and people that wants to use dependency injection. All services need at least the `IGetChangeioConfig` which exposes the following properties:
- * PublicKey
- * PrivateKey
+ * GetChangeioPublicKey
+ * GetChangeioPrivateKey
 
 Because this config is strictly dependant on your project, you are supposed to inherit from this contract and provide an implementation upon service construction.
 
