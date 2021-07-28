@@ -7,8 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Rest.GetChangeio.Requests\Rest.GetChangeio.Requests.csproj" />
-      <ProjectReference Include="..\Rest.GetChangeio.Responses\Rest.GetChangeio.Responses.csproj" />
       <ProjectReference Include="..\Rest.GetChangeio.ServiceModel\Rest.GetChangeio.ServiceModel.csproj" />
     </ItemGroup>
 

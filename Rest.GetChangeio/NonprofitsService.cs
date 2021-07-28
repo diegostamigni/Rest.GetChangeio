@@ -1,10 +1,10 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Rest.GetChangeio.Abstractions;
+using Rest.GetChangeio.Responses;
 using Rest.GetChangeio.ServiceModel;
 
 namespace Rest.GetChangeio
@@ -21,7 +21,7 @@ namespace Rest.GetChangeio
 		{
 		}
 
-		public async Task<Nonprofit?> GetAsync([NotNull] string id, CancellationToken token = default)
+		public async Task<Nonprofit?> GetAsync(string id, CancellationToken token = default)
 		{
 			if (id == null)
 			{
@@ -36,16 +36,13 @@ namespace Rest.GetChangeio
 			var uri = new Uri(this.BaseUri, $"nonprofits/{id}");
 
 			using var httpClient = this.HttpClient;
-			await using var stream = await httpClient.GetStreamAsync(uri);
+			using var stream = await httpClient.GetStreamAsync(uri);
 
 			var result = await JsonSerializer.DeserializeAsync<Nonprofit>(stream, this.JsonSerializerOptions, token);
 			return result;
 		}
 
-		public async Task<SearchNonprofitsResponse?> SearchAsync(
-			[NotNull] string name,
-			int page,
-			CancellationToken token = default)
+		public async Task<SearchNonprofitsResponse?> SearchAsync(string name, int page, CancellationToken token = default)
 		{
 			if (name == null)
 			{
@@ -55,7 +52,7 @@ namespace Rest.GetChangeio
 			var uri = new Uri(this.BaseUri, $"nonprofits?name={name}&page={page}");
 
 			using var httpClient = this.HttpClient;
-			await using var stream = await httpClient.GetStreamAsync(uri);
+			using var stream = await httpClient.GetStreamAsync(uri);
 
 			var result = await JsonSerializer.DeserializeAsync<SearchNonprofitsResponse>(stream, this.JsonSerializerOptions, token);
 			return result;

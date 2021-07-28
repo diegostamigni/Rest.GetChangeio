@@ -2,12 +2,10 @@
 
 namespace Rest.GetChangeio.ServiceModel
 {
-	public record Donation(string Id)
+	public record Donation(string Id, long Amount)
 	{
-		public string? Amount { get; set; }
-
 		[JsonPropertyName("live_mode")]
-		public string? LiveMode { get; set; }
+		public bool? LiveMode { get; set; }
 
 		[JsonPropertyName("merchant_id")]
 		public string? MerchantId { get; set; }
@@ -16,7 +14,7 @@ namespace Rest.GetChangeio.ServiceModel
 		public string? NonprofitId { get; set; }
 
 		[JsonPropertyName("order_value")]
-		public string? OrderValue { get; set; }
+		public int? OrderValue { get; set; }
 
 		[JsonPropertyName("zip_code")]
 		public string? ZipCode { get; set; }

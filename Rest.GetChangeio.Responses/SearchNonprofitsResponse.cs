@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using Rest.GetChangeio.ServiceModel;
 
-namespace Rest.GetChangeio.ServiceModel
+namespace Rest.GetChangeio.Responses
 {
 	public class SearchNonprofitsResponse
 	{

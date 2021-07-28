@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.GetChangeio.Requests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.GetChangeio.ServiceModel", "Rest.GetChangeio.ServiceModel\Rest.GetChangeio.ServiceModel.csproj", "{686EFD23-9E06-4A60-89CB-C07C3855CF47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.GetChangeio.Responses", "Rest.GetChangeio.Responses\Rest.GetChangeio.Responses.csproj", "{458C8B61-11D5-45C8-991E-E0E2204B45B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{686EFD23-9E06-4A60-89CB-C07C3855CF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{686EFD23-9E06-4A60-89CB-C07C3855CF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{686EFD23-9E06-4A60-89CB-C07C3855CF47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{458C8B61-11D5-45C8-991E-E0E2204B45B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{458C8B61-11D5-45C8-991E-E0E2204B45B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{458C8B61-11D5-45C8-991E-E0E2204B45B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{458C8B61-11D5-45C8-991E-E0E2204B45B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
