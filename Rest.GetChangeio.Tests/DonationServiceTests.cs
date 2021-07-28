@@ -22,7 +22,7 @@ namespace Rest.GetChangeio.Tests
 		[TestCase("n_ur8IsL04GUxE2uaKqAgqpYlK", 12325, false)]
 		public async Task CreateDonation_Success(string id, long amount, bool fundsCollected)
 		{
-			var result = await this.Service!.Create(new(id, amount, fundsCollected));
+			var result = await this.Service!.CreateAsync(new(id, amount, fundsCollected));
 			result.ShouldNotBeNull();
 			result.ShouldSatisfyAllConditions
 			(

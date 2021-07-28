@@ -22,7 +22,7 @@ namespace Rest.GetChangeio
 		{
 		}
 
-		public async Task<Donation?> Create(CreateDonationRequest request, CancellationToken token = default)
+		public async Task<Donation?> CreateAsync(CreateDonationRequest request, CancellationToken token = default)
 		{
 			if (request == null)
 			{

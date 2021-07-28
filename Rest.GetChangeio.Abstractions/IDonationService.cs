@@ -20,7 +20,7 @@ namespace Rest.GetChangeio.Abstractions
 		/// <param name="request"></param>
 		/// <param name="token"></param>
 		/// <returns>The resulting donation.</returns>
-		Task<Donation?> Create(CreateDonationRequest request, CancellationToken token = default);
+		Task<Donation?> CreateAsync(CreateDonationRequest request, CancellationToken token = default);
 
 		/// <summary>
 		/// Retrieves the details of a donation you've previously made.
