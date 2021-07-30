@@ -61,7 +61,6 @@ namespace Rest.GetChangeio.Tests
 		}
 
 		[TestCase("invalid-search")]
-		[TestCase("123123123")]
 		public async Task SearchNonprofits_EmptyResult(string name)
 		{
 			var result = await this.Service!.SearchAsync(name);
