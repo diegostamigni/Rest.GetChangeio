@@ -60,6 +60,19 @@ namespace Rest.GetChangeio.Tests
 			);
 		}
 
+		[TestCase("fcancer", "n_ur8IsL04GUxE2uaKqAgqpYlK", "healthcare", "environment")]
+		[TestCase("fcancer", "n_ur8IsL04GUxE2uaKqAgqpYlK", "healthcare")]
+		public async Task SearchNonprofits_Categories_Success(string name, string id, params string[] categories)
+		{
+			var result = await this.Service!.SearchAsync(name, categories);
+			result.ShouldNotBeNull();
+			result.ShouldSatisfyAllConditions
+			(
+				() => result.Nonprofits.ShouldNotBeNull(),
+				() => result.Nonprofits?.ShouldContain(x => x.Id == id)
+			);
+		}
+
 		[TestCase("invalid-search")]
 		public async Task SearchNonprofits_EmptyResult(string name)
 		{

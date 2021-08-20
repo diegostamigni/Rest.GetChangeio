@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
@@ -42,14 +43,25 @@ namespace Rest.GetChangeio
 			return result;
 		}
 
-		public async Task<SearchNonprofitsResponse?> SearchAsync(string name, int page, CancellationToken token = default)
+		public Task<SearchNonprofitsResponse?> SearchAsync(string name, int page, CancellationToken token = default)
+			=> SearchAsync(name, Array.Empty<string>(), page, token);
+
+		public async Task<SearchNonprofitsResponse?> SearchAsync(
+			string name,
+			string[] categories,
+			int page = 1,
+			CancellationToken token = default)
 		{
 			if (name == null)
 			{
 				throw new ArgumentNullException(nameof(name));
 			}
 
-			var uri = new Uri(this.BaseUri, $"nonprofits?name={name}&page={page}");
+			var path = categories
+				.Select(x => x.Trim())
+				.Aggregate($"nonprofits?name={name}&page={page}", (current, category) => $"{current}&categories[]={category}");
+
+			var uri = new Uri(this.BaseUri, path);
 
 			using var httpClient = this.HttpClient;
 			using var stream = await httpClient.GetStreamAsync(uri);

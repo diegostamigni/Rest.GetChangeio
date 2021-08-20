@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Rest.GetChangeio.ServiceModel
@@ -31,5 +32,11 @@ namespace Rest.GetChangeio.ServiceModel
 
 		[JsonPropertyName("zip_code")]
 		public string? ZipCode { get; set; }
+
+		public string? Category { get; set; }
+
+		public string? Email { get; set; }
+
+		public Dictionary<string, string>? Socials { get; set; }
 	}
 }
