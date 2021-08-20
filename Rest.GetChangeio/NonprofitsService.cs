@@ -57,6 +57,11 @@ namespace Rest.GetChangeio
 				throw new ArgumentNullException(nameof(name));
 			}
 
+			if (categories == null)
+			{
+				throw new ArgumentNullException(nameof(categories));
+			}
+
 			var path = categories
 				.Select(x => x.Trim())
 				.Aggregate($"nonprofits?name={name}&page={page}", (current, category) => $"{current}&categories[]={category}");
