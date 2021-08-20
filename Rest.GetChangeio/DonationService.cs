@@ -24,7 +24,7 @@ namespace Rest.GetChangeio
 
 		public async Task<Donation?> CreateAsync(CreateDonationRequest request, CancellationToken token = default)
 		{
-			if (request == null)
+			if (request is null)
 			{
 				throw new ArgumentNullException(nameof(request));
 			}
@@ -41,7 +41,7 @@ namespace Rest.GetChangeio
 
 		public async Task<Donation?> GetAsync(string id, CancellationToken token = default)
 		{
-			if (id == null)
+			if (id is null)
 			{
 				throw new ArgumentNullException(nameof(id));
 			}

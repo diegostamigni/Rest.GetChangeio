@@ -24,7 +24,7 @@ namespace Rest.GetChangeio
 
 		public async Task<Nonprofit?> GetAsync(string id, CancellationToken token = default)
 		{
-			if (id == null)
+			if (id is null)
 			{
 				throw new ArgumentNullException(nameof(id));
 			}
@@ -52,12 +52,12 @@ namespace Rest.GetChangeio
 			int page = 1,
 			CancellationToken token = default)
 		{
-			if (name == null)
+			if (name is null)
 			{
 				throw new ArgumentNullException(nameof(name));
 			}
 
-			if (categories == null)
+			if (categories is null)
 			{
 				throw new ArgumentNullException(nameof(categories));
 			}
