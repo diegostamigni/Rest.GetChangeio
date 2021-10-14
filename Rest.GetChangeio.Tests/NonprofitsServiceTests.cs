@@ -42,10 +42,11 @@ namespace Rest.GetChangeio.Tests
 
 		[TestCase("invalid-id")]
 		[TestCase("123123123")]
-		public Task GetNonprofit_Invalid_Id_NotFound_ShouldThrow(string id)
- #pragma warning disable 8625
-			=> Should.ThrowAsync<HttpRequestException>(() => this.Service!.GetAsync(id));
- #pragma warning restore 8625
+		public async Task GetNonprofit_Invalid_Id_NotFound_ReturnsNull(string id)
+		{
+			var result = await this.Service!.GetAsync(id);
+			result.ShouldBeNull();
+		}
 
 		[TestCase("fcancer", "n_ur8IsL04GUxE2uaKqAgqpYlK")]
 		[TestCase("thirst project", "n_ZaVKZ7i08qkbfxWI363FtgxN")]
