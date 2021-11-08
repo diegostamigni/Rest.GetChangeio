@@ -2,6 +2,7 @@ using System;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Rest.GetChangeio.Abstractions;
 
 namespace Rest.GetChangeio
@@ -18,7 +19,7 @@ namespace Rest.GetChangeio
 		protected readonly JsonSerializerOptions JsonSerializerOptions = new()
 		{
 			PropertyNameCaseInsensitive = true,
-			IgnoreNullValues = true,
+			DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
 			PropertyNamingPolicy = JsonNamingPolicy.CamelCase
 		};
 
