@@ -33,7 +33,7 @@ namespace Rest.GetChangeio
 			using var httpRequestMessage = CreateRequest(request, HttpMethod.Post, new Uri(this.BaseUri, $"donations"));
 
 			using var response = await httpClient.SendAsync(httpRequestMessage, token);
-			using var stream = await response.Content.ReadAsStreamAsync();
+			await using var stream = await response.Content.ReadAsStreamAsync();
 
 			var result = await JsonSerializer.DeserializeAsync<Donation>(stream, this.JsonSerializerOptions, token);
 			return result;
@@ -54,7 +54,7 @@ namespace Rest.GetChangeio
 			var uri = new Uri(this.BaseUri, $"donations/{id}");
 
 			using var httpClient = this.HttpClient;
-			using var stream = await httpClient.GetStreamAsync(uri);
+			await using var stream = await httpClient.GetStreamAsync(uri);
 
 			var result = await JsonSerializer.DeserializeAsync<Donation>(stream, this.JsonSerializerOptions, token);
 			return result;
@@ -65,7 +65,7 @@ namespace Rest.GetChangeio
 			var uri = new Uri(this.BaseUri, $"donations?page={page}");
 
 			using var httpClient = this.HttpClient;
-			using var stream = await httpClient.GetStreamAsync(uri);
+			await using var stream = await httpClient.GetStreamAsync(uri);
 
 			var result = await JsonSerializer.DeserializeAsync<GetDonationsResponse>(stream, this.JsonSerializerOptions, token);
 			return result;

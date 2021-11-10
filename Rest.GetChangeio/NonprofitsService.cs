@@ -37,7 +37,7 @@ namespace Rest.GetChangeio
 			var uri = new Uri(this.BaseUri, $"nonprofits/{id}");
 
 			using var httpClient = this.HttpClient;
-			using var stream = await httpClient.GetStreamAsync(uri);
+			await using var stream = await httpClient.GetStreamAsync(uri);
 
 			var result = await JsonSerializer.DeserializeAsync<Nonprofit>(stream, this.JsonSerializerOptions, token);
 			return result;
@@ -69,9 +69,35 @@ namespace Rest.GetChangeio
 			var uri = new Uri(this.BaseUri, path);
 
 			using var httpClient = this.HttpClient;
-			using var stream = await httpClient.GetStreamAsync(uri);
+			await using var stream = await httpClient.GetStreamAsync(uri);
 
-			var result = await JsonSerializer.DeserializeAsync<SearchNonprofitsResponse>(stream, this.JsonSerializerOptions, token);
+			var result = await JsonSerializer
+				.DeserializeAsync<SearchNonprofitsResponse>(stream, this.JsonSerializerOptions, token);
+			return result;
+		}
+
+		public async Task<CreateInstantPayoutResponse?> CreateInstantPayoutAsync(
+			string id,
+			CancellationToken token = default)
+		{
+			if (id is null)
+			{
+				throw new ArgumentNullException(nameof(id));
+			}
+
+			if (string.IsNullOrWhiteSpace(id))
+			{
+				throw new ArgumentException(nameof(id));
+			}
+
+			var uri = new Uri(this.BaseUri, $"nonprofits/{id}/instant_payouts");
+
+			using var httpClient = this.HttpClient;
+			using var response = await httpClient.SendAsync(new(HttpMethod.Post, uri), token);
+			await using var stream = await response.Content.ReadAsStreamAsync();
+
+			var result = await JsonSerializer
+				.DeserializeAsync<CreateInstantPayoutResponse>(stream, this.JsonSerializerOptions, token);
 			return result;
 		}
 	}

@@ -44,5 +44,15 @@ namespace Rest.GetChangeio.Abstractions
 			string[] categories,
 			int page = 1,
 			CancellationToken token = default);
+
+		/// <summary>
+		/// Immediately starts a payout to a nonprofit. Normally, nonprofits are paid once per month.
+		/// If you want a nonprofit to receive your donations sooner, use this endpoint. You will receive an invoice
+		/// for the donation funds within 24 hours of using this endpoint.
+		/// </summary>
+		/// <param name="id">The id of a nonprofit from the CHANGE network.</param>
+		/// <param name="token"></param>
+		/// <returns></returns>
+		Task<CreateInstantPayoutResponse?> CreateInstantPayoutAsync(string id, CancellationToken token = default);
 	}
 }

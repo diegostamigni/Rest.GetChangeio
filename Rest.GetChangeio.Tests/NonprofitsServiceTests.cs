@@ -1,5 +1,4 @@
 using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Rest.GetChangeio.Abstractions;
@@ -91,6 +90,18 @@ namespace Rest.GetChangeio.Tests
  #pragma warning disable 8625
 			=> Should.ThrowAsync<ArgumentNullException>(() => this.Service!.SearchAsync(null));
  #pragma warning restore 8625
+
+		[Test]
+		public async Task CreateInstantPayout_Success()
+		{
+			var result = await this.Service!.CreateInstantPayoutAsync("n_ur8IsL04GUxE2uaKqAgqpYlK");
+			result.ShouldNotBeNull();
+			result.ShouldSatisfyAllConditions
+			(
+				() => result.InstantPayouts.ShouldNotBeNull(),
+				() => result.InstantPayouts.ShouldBeEmpty()
+			);
+		}
 
 		protected override INonprofitsService GetService()
 			=> new NonprofitsService(this.ConfigMock!.Object);
