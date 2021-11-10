@@ -92,6 +92,7 @@ namespace Rest.GetChangeio.Tests
  #pragma warning restore 8625
 
 		[Test]
+		[Explicit]
 		public async Task CreateInstantPayout_Success()
 		{
 			var result = await this.Service!.CreateInstantPayoutAsync("n_ur8IsL04GUxE2uaKqAgqpYlK");

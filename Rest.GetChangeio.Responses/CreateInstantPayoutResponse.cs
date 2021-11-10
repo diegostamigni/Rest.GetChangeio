@@ -7,6 +7,6 @@ namespace Rest.GetChangeio.Responses
 	public class CreateInstantPayoutResponse
 	{
 		[JsonPropertyName("instant_payouts")]
-		public List<InstantPayout> InstantPayouts { get; set; }
+		public List<InstantPayout>? InstantPayouts { get; set; }
 	}
 }
