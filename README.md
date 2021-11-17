@@ -50,5 +50,14 @@ var result = await nonprofitsService.SearchAsync("fcancer"); // supports paginat
     - [ ] Draft a crypto carbon offset
     - [ ] Create a crypto carbon offset
     - [ ] Retrieve carbon offset stats
+* Marketplace
+    - [ ] Create a managed account
+    - [ ] Create a link bank token
+    - [ ] Attach a bank to a managed account
+* Reports
+    - [ ] Fetch impact report
+* Prebuilt pages
+    - [x] Create a checkout link
+    - [x] Create a crypto checkout link
 
 Feel free to contribute! Support for missing APIs and tests are underway.

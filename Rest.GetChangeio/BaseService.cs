@@ -12,7 +12,7 @@ namespace Rest.GetChangeio
 		private readonly IGetChangeioConfig config;
 		private readonly IHttpClientFactory? httpClientFactory;
 
-		protected string BaseUrl => $"https://api.getchange.io/api/v1/";
+		protected string BaseUrl => "https://api.getchange.io/api/v1/";
 
 		protected Uri BaseUri => new Uri(this.BaseUrl);
 
