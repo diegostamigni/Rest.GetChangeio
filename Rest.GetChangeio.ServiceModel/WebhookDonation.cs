@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Rest.GetChangeio.ServiceModel
 {
-	public record Donation(string Id, long Amount)
+	public record WebhookDonation(string Id, decimal Amount)
 	{
 		[JsonPropertyName("live_mode")]
 		public bool? LiveMode { get; set; }
@@ -24,6 +24,9 @@ namespace Rest.GetChangeio.ServiceModel
 		public string? ExternalId { get; set; }
 
 		public Dictionary<string, string>? Metadata { get; set; }
-	}
 
+		public string? Currency { get; set; }
+
+		public WebhookConversion? Conversion { get; set; }
+	}
 }
