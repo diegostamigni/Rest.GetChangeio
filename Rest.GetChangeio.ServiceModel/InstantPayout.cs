@@ -6,7 +6,7 @@ namespace Rest.GetChangeio.ServiceModel
 
 		public string? AccountId { get; set; }
 
-		public long? Amount { get; set; }
+		public decimal? Amount { get; set; }
 
 		public string? Status { get; set; }
 	}
