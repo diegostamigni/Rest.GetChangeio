@@ -91,11 +91,11 @@ namespace Rest.GetChangeio.Tests
 			=> Should.ThrowAsync<ArgumentNullException>(() => this.Service!.SearchAsync(null));
  #pragma warning restore 8625
 
-		[Test]
 		[Explicit]
-		public async Task CreateInstantPayout_Success()
+		[TestCase("n_ur8IsL04GUxE2uaKqAgqpYlK")]
+		public async Task CreateInstantPayout_Success(string id)
 		{
-			var result = await this.Service!.CreateInstantPayoutAsync("n_ur8IsL04GUxE2uaKqAgqpYlK");
+			var result = await this.Service!.CreateInstantPayoutAsync(id);
 			result.ShouldNotBeNull();
 			result.ShouldSatisfyAllConditions
 			(
