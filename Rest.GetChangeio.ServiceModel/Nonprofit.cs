@@ -17,6 +17,13 @@ namespace Rest.GetChangeio.ServiceModel
 		[JsonPropertyName("pending_payout_amount")]
 		public long? PendingPayoutAmount { get; set; }
 
+		/// <summary>
+		/// Dictionary of currency and amount.
+		/// Ex: USD: 1.234
+		/// </summary>
+		[JsonPropertyName("pending_payout_amounts")]
+		public Dictionary<string, decimal>? PendingPayoutAmounts { get; set; }
+
 		[JsonPropertyName("address_line")]
 		public string? AddressLine { get; set; }
 
