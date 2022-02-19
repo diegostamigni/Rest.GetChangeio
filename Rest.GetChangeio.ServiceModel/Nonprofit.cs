@@ -22,7 +22,7 @@ namespace Rest.GetChangeio.ServiceModel
 		/// Ex: USD: 1.234
 		/// </summary>
 		[JsonPropertyName("pending_payout_amounts")]
-		public Dictionary<string, decimal>? PendingPayoutAmounts { get; set; }
+		public Dictionary<string, object>? PendingPayoutAmounts { get; set; }
 
 		[JsonPropertyName("address_line")]
 		public string? AddressLine { get; set; }
