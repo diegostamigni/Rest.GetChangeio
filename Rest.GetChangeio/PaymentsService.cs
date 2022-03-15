@@ -39,7 +39,7 @@ namespace Rest.GetChangeio
 			}
 
 			using var httpClient = this.HttpClient;
-			using var httpRequestMessage = CreateRequest(request, HttpMethod.Post, new Uri(this.BaseUri, endpointUrl));
+			using var httpRequestMessage = CreateRequest(request, HttpMethod.Post, new Uri(BaseUri, endpointUrl));
 
 			using var response = await httpClient.SendAsync(httpRequestMessage, token);
 			await using var stream = await response.Content.ReadAsStreamAsync();

@@ -52,7 +52,17 @@ namespace Rest.GetChangeio.Abstractions
 		/// </summary>
 		/// <param name="id">The id of a nonprofit from the CHANGE network.</param>
 		/// <param name="token"></param>
-		/// <returns></returns>
+		/// <returns>The payout created</returns>
 		Task<CreateInstantPayoutResponse?> CreateInstantPayoutAsync(string id, CancellationToken token = default);
+
+		/// <summary>
+		/// Retrieves a list of instant payouts you've previously made that are either pending or complete for the
+		/// last month. The instant payouts are returned in order of creation, with the most recent instant payouts
+		/// appearing first.
+		/// </summary>
+		/// <param name="id">The id of a nonprofit from the CHANGE network.</param>
+		/// <param name="token"></param>
+		/// <returns>A list of instant payouts you've previously made</returns>
+		Task<GetInstantPayoutsResponse?> GetInstantPayoutsAsync(string id, CancellationToken token = default);
 	}
 }

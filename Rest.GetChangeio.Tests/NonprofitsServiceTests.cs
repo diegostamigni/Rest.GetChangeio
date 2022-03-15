@@ -104,6 +104,19 @@ namespace Rest.GetChangeio.Tests
 			);
 		}
 
+		[Explicit]
+		[TestCase("n_ur8IsL04GUxE2uaKqAgqpYlK")]
+		public async Task GetInstantPayouts_Success(string id)
+		{
+			var result = await this.Service!.GetInstantPayoutsAsync(id);
+			result.ShouldNotBeNull();
+			result.ShouldSatisfyAllConditions
+			(
+				() => result.InstantPayouts.ShouldNotBeNull(),
+				() => result.InstantPayouts.ShouldBeEmpty()
+			);
+		}
+
 		protected override INonprofitsService GetService()
 			=> new NonprofitsService(this.ConfigMock!.Object);
 	}

@@ -12,9 +12,9 @@ namespace Rest.GetChangeio
 		private readonly IGetChangeioConfig config;
 		private readonly IHttpClientFactory? httpClientFactory;
 
-		protected string BaseUrl => "https://api.getchange.io/api/v1/";
+		protected static string BaseUrl => "https://api.getchange.io/api/v1/";
 
-		protected Uri BaseUri => new Uri(this.BaseUrl);
+		protected static Uri BaseUri => new(BaseUrl);
 
 		protected readonly JsonSerializerOptions JsonSerializerOptions = new()
 		{

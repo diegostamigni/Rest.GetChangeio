@@ -30,7 +30,7 @@ namespace Rest.GetChangeio
 			}
 
 			using var httpClient = this.HttpClient;
-			using var httpRequestMessage = CreateRequest(request, HttpMethod.Post, new Uri(this.BaseUri, "donations"));
+			using var httpRequestMessage = CreateRequest(request, HttpMethod.Post, new Uri(BaseUri, "donations"));
 
 			using var response = await httpClient.SendAsync(httpRequestMessage, token);
 			await using var stream = await response.Content.ReadAsStreamAsync();
@@ -51,7 +51,7 @@ namespace Rest.GetChangeio
 				throw new ArgumentException(nameof(id));
 			}
 
-			var uri = new Uri(this.BaseUri, $"donations/{id}");
+			var uri = new Uri(BaseUri, $"donations/{id}");
 
 			using var httpClient = this.HttpClient;
 			await using var stream = await httpClient.GetStreamAsync(uri);
@@ -62,7 +62,7 @@ namespace Rest.GetChangeio
 
 		public async Task<GetDonationsResponse?> GetAllAsync(int page = 1, CancellationToken token = default)
 		{
-			var uri = new Uri(this.BaseUri, $"donations?page={page}");
+			var uri = new Uri(BaseUri, $"donations?page={page}");
 
 			using var httpClient = this.HttpClient;
 			await using var stream = await httpClient.GetStreamAsync(uri);
