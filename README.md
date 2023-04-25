@@ -43,6 +43,8 @@ var result = await nonprofitsService.SearchAsync("fcancer"); // supports paginat
 * Nonprofits
     - [x] Show a nonprofit
     - [x] Search a nonprofit
+    - [x] Create non-profit
+    - [x] Trigger instant payout
     - [ ] Get social media content
 * Climate
     - [ ] Draft a shipping carbon offset
